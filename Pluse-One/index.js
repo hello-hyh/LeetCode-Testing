@@ -1,16 +1,23 @@
 /**
- * @param {number[]} nums
- * @param {number} target
+ * @param {number[]} digits
  * @return {number[]}
  */
-var twoSum = function (nums, target) {
-  let len = nums.length
-  let secondNumTmp = 0
-  let result = []
-  if (len <= 2 && nums[0] + nums[1] === target) return [0, 1]
-  for (let i = 0; i < len; i++) {
-    secondNumTmp = target - nums[i]
-    if (result[secondNumTmp] !== undefined) return [result[secondNumTmp], i]
-    result[nums[i]] = i
+var plusOne = function (digits) {
+  let arr = []
+  let len = digits.length - 1
+  for (let i = len; i >= 0; i--) {
+    if (digits[i] >= 9) {
+      if (i > 0) {
+        digits[i] = 0
+      } else if (i === 0) {
+        digits[i] = 0
+        digits.unshift(1)
+        break
+      }
+    } else {
+      digits[i]++
+      break
+    }
   }
+  return digits
 };
